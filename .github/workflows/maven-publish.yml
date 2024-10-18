@@ -13,8 +13,14 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v4
 
-      - name: Import GPG signing key
-        uses: crazy-max/ghaction-import-gpg@v5
+      - name: Install Java and Maven
+        uses: actions/setup-java@v4
         with:
-          gpg_private_key: ${{ secrets.RELEASES_GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.RELEASES_GPG_PASSPHRASE }}
+          java-version: 23
+          distribution: 'temurin'
+          cache: 'maven'
+          check-latest: true
+          server-id: 'ossrh' # must match the serverId configured for the nexus-staging-maven-plugin
+          server-username: ${{ secrets.OSSRH_USERNAME }}
+          server-password:  ${{ secrets.OSSRH_TOKEN }} # Env var that holds your OSSRH user pw
+          gpg-private-key: ${{ secrets.RELEASES_GPG_PRIVATE_KEY }}
