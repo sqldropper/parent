@@ -24,3 +24,6 @@ jobs:
           server-username: ${{ secrets.OSSRH_USERNAME }}
           server-password:  ${{ secrets.OSSRH_TOKEN }} # Env var that holds your OSSRH user pw
           gpg-private-key: ${{ secrets.RELEASES_GPG_PRIVATE_KEY }}
+
+      - name: deploy
+        run: mvn clean deploy
