@@ -47,10 +47,14 @@
 <!--	</distributionManagement>-->
     <distributionManagement>
         <repository>
-            <id>github-packages</id>
+            <id>github</id>
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/sqldropper/parent</url>
         </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/sqldropper/parent</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <properties>
