@@ -21,9 +21,10 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
+          server-id: github
+          settings-path: ${{ github.workspace }}
 
       - name: Publish package
-        run: mvn deploy # Use ./gradlew publish for Gradle projects
+        run: mvn deploy
         env:
-            # Authenticates with the GITHUB_TOKEN to publish to GitHub Packages
-            GITHUB_TOKEN: ${{ secrets.parent-artifact-publish }}
+          GITHUB_TOKEN: ${{ secrets.ARTIFACT_PUBLISH_TOKEN }}
