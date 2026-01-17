@@ -21,8 +21,24 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          server-id: github
-          settings-path: ${{ github.workspace }}
+
+      - name: Generate Maven settings.xml
+        run: |
+         mkdir -p ~/.m2
+         cat <<EOF > ~/.m2/settings.xml
+         <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
+           <servers>
+             <server>
+               <id>github</id>
+               <username>${{ secrets.ARTIFACT_PUBLISH_USER_NAME }}</username>
+               <password>${{ secrets.ARTIFACT_PUBLISH_TOKEN }}</password>
+             </server>
+           </servers>
+         </settings>
+         EOF
 
       - name: Publish package
         run: mvn deploy
