@@ -21,10 +21,9 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          server-id: github
-          settings-path: ${{ github.workspace }}
 
-      - name: Publish Package
-        run: mvn --batch-mode deploy
+      - name: Publish package
+        run: mvn deploy # Use ./gradlew publish for Gradle projects
         env:
-          GITHUB_TOKEN: ${{ secrets.parent-artifact-publish }}
+            # Authenticates with the GITHUB_TOKEN to publish to GitHub Packages
+            GITHUB_TOKEN: ${{ secrets.parent-artifact-publish }}
