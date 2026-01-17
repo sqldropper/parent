@@ -3,7 +3,7 @@ name: Publish to GitHub Packages
 on:
   push:
     branches:
-      - master  # Trigger on push to main branch
+      - *  # Trigger on push to main branch
 
 jobs:
   publish:
