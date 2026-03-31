@@ -3,44 +3,7 @@ name: Publish to GitHub Packages
 on:
   push:
     branches:
-      - '*'  # Trigger on push to main branch
-
+      - '*'
 jobs:
   publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write  # Required to upload to GitHub Packages
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 25
-        uses: actions/setup-java@v4
-        with:
-          java-version: '25'
-          distribution: 'temurin'
-
-      - name: Generate Maven settings.xml
-        run: |
-         mkdir -p ~/.m2
-         cat <<EOF > ~/.m2/settings.xml
-         <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
-           <servers>
-             <server>
-               <id>github</id>
-               <username>${{ secrets.ARTIFACT_PUBLISH_USER_NAME }}</username>
-               <password>${{ secrets.ARTIFACT_PUBLISH_TOKEN }}</password>
-             </server>
-           </servers>
-         </settings>
-         EOF
-
-      - name: Publish package
-        run: mvn deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.ARTIFACT_PUBLISH_TOKEN }}
+    uses: sqldropper/github-actions/.github/workflows/package-publish.yml@main
