@@ -6,4 +6,6 @@ on:
       - '*'
 jobs:
   publish:
-    uses: sqldropper/github-actions/.github/workflows/package-publish.yml@master
+    uses: sqldropper/github-actions/.github/workflows/ci.yml@master
+    with:
+      repo-url: "sqldropper/parent"
