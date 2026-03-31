@@ -6,4 +6,4 @@ on:
       - '*'
 jobs:
   publish:
-    uses: sqldropper/github-actions/.github/workflows/package-publish.yml@main
+    uses: sqldropper/github-actions/.github/workflows/package-publish.yml@master
