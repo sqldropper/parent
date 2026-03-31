@@ -7,5 +7,3 @@ on:
 jobs:
   publish:
     uses: sqldropper/github-actions/.github/workflows/ci.yml@master
-    with:
-      repo-url: "sqldropper/parent"
