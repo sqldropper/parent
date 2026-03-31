@@ -1,11 +1,10 @@
-name: Publish to GitHub Packages
-
+name: Trigger GitHub Actions CI
 on:
   push:
     branches:
       - '*'
 jobs:
-  publish:
+  call-gh-actions:
     uses: sqldropper/github-actions/.github/workflows/parent-ci.yml@master
     with:
       repo-url: ${{ github.event.inputs.repo-url }}
