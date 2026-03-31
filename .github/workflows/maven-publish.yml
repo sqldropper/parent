@@ -7,3 +7,6 @@ on:
 jobs:
   publish:
     uses: sqldropper/github-actions/.github/workflows/parent-ci.yml@master
+    with:
+      repo-url: ${{ github.event.inputs.repo-url }}
+      branch: ${{ github.event.inputs.branch }}
