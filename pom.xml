@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.1</version>
+		<version>4.0.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sqldropper</groupId>
@@ -35,31 +35,30 @@
 		<tag/>
 		<url/>
 	</scm>
-<!--	<distributionManagement>-->
-<!--		<snapshotRepository>-->
-<!--			<id>ossrh</id>-->
-<!--			<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
-<!--		</snapshotRepository>-->
-<!--		<repository>-->
-<!--			<id>ossrh</id>-->
-<!--			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-<!--		</repository>-->
-<!--	</distributionManagement>-->
+
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/sqldropper/parent</url>
+            <url>https://maven.pkg.github.com/sqldropper/artifacts</url>
         </repository>
         <snapshotRepository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/sqldropper/parent</url>
+            <url>https://maven.pkg.github.com/sqldropper/artifacts</url>
         </snapshotRepository>
     </distributionManagement>
 
     <properties>
 		<java.version>25</java.version>
 	</properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
