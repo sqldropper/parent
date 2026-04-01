@@ -4,8 +4,12 @@ on:
     branches:
       - '*'
 jobs:
-  call-gh-actions:
-    uses: sqldropper/github-actions/.github/workflows/parent-ci.yml@master
-    with:
-      repo-url: ${{ github.event.inputs.repo-url }}
-      branch: ${{ github.event.inputs.branch }}
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger workflow
+        run: |
+          gh workflow run parent-ci.yml \
+            --repo sqldropper/github-actions \
+            -f repo-url=${{ github.repository }} \
+            -f branch=${{ github.ref_name }}
