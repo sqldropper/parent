@@ -38,7 +38,7 @@
     <dependencyManagement>
         <dependencies>
 
-            <!-- 🔥 Spring Boot BOM (core of everything) -->
+            <!-- Spring Boot BOM -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -66,7 +66,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- ✅ Plugins controlled centrally -->
+    <!-- Plugins controlled centrally -->
     <build>
         <pluginManagement>
             <plugins>
