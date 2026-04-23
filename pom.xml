@@ -16,7 +16,7 @@
         <java.version>25</java.version>
 
         <!-- Centralized versions -->
-        <spring.boot.version>4.0.3</spring.boot.version>
+        <spring.boot.version>4.0.5</spring.boot.version>
         <spring.auth.server.version>7.0.2</spring.auth.server.version>
         <testcontainers.version>1.21.3</testcontainers.version>
         <jacoco.version>0.8.13</jacoco.version>
