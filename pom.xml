@@ -17,10 +17,10 @@
 
         <!-- Centralized versions -->
         <spring.boot.version>4.0.5</spring.boot.version>
-        <spring.auth.server.version>7.0.2</spring.auth.server.version>
         <testcontainers.version>1.21.3</testcontainers.version>
         <jacoco.version>0.8.13</jacoco.version>
         <sonar.version>3.11.0.3922</sonar.version>
+        <swagger.version>3.0.2</swagger.version>
     </properties>
 
     <distributionManagement>
@@ -53,6 +53,14 @@
                 <artifactId>spring-security-oauth2-authorization-server</artifactId>
                 <version>${spring.auth.server.version}</version>
             </dependency>
+
+            <!-- Swagger-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
 
             <!-- Testcontainers BOM -->
             <dependency>
