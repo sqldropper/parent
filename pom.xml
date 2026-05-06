@@ -21,6 +21,7 @@
         <jacoco.version>0.8.13</jacoco.version>
         <sonar.version>3.11.0.3922</sonar.version>
         <swagger.version>3.0.2</swagger.version>
+        <spring.auth.server.version>7.0.5</spring.auth.server.version>
     </properties>
 
     <distributionManagement>
